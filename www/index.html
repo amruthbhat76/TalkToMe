@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<title>TALK TO ME</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-teal.min.css"/>
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+<link rel="stylesheet" href="main.css">
+</head>
+<body>
+<div class="mdl-layout mdl-js-layout mdl-js-layout--fixedheader">
+  <header class="mdl-layout__header mdl-color-text--white ">
+     <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
+       <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--12-col-desktop mdl-cell--4-col-phone">
+      <h3><i class="material-icons">message</i>Talk To Me</h3>
+      <div id="user-container">
+        <div id="user-pic"></div>
+        <div id="user-name"></div>
+        <button id="sign-out" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
+          Sign-out
+        </button>
+        <button  id="sign-in" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
+          <i class="material-icons">account_circle</i>Sign-in with Google
+        </button>
+      </div>
+    </div>
+    </div>
+  </header>
+
+  <main class="mdl-layout__content mdl-color--grey-100">
+  <div id="msg-card-container" class="mdl-cell mdl-cell--12-col md-col-6 mdl-grid">
+   <div id="msg-card" class="mdl-card mdl-shadow--3dp mdl-cell  mdl-cell--12-col mdl-cell--6-col-desktop mdl-cell--6-col-tablet mdl-cell--2-col-phone">
+    <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+          <div id="msgs">
+            <span id="message-filler"></span>
+          </div>
+  
+         <form id="msgform" action="#">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+           <input class="mdl-textfield__input" type="text" id="msg">
+            <label class="mdl-textfield__label" for="message">Message...</label>
+          </div>
+          <button id="submit"  type="submit" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+           <i class="material-icons">send</i>
+          </button>
+         </form>
+         <form id="imgform" action="#">
+          <input id="mediaCapture" type="file" accept="image/*,capture=camera">
+           <button id="submitImage" title="Add an image" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect
+             mdl-button--colored  mdl-color-text--black">
+             <i class="material-icons">image</i>
+           </button>
+         </form>
+    </div>
+   </div>
+   <div id="must-signin-snackbar" class="mdl-js-snackbar mdl-snackbar">
+      <div class="mdl-snackbar__text"></div>
+        <button class="mdl-snackbar__action" type="button"></button>
+      </div>
+    <div id="thread-card" class="mdl-card mdl-shadow--3dp md-col-7 mdl-cell  mdl-cell--12-col mdl-cell--6-col-desktop mdl-cell--6-col-tablet mdl-cell--2-col-phone">
+    <form action="#"><br>
+            <legend><i>Create a thread</i></legend>
+            
+            <div class="mdl-textfield mdl-js-textfield" id="threadadd">
+            <input class="mdl-textfield__input" type="text" id="username">
+           <label class="mdl-textfield__label" for="username">EmailId of user to create new thread...</label>
+           </div>
+           <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect" id="addbutton">
+           <i class="material-icons">add</i>
+          </button>
+
+           </form>
+    <div id="threads">
+            <span id="thread-filler"></span>
+            
+    </div>
+<!--<ul class="demo-list-icon mdl-list">
+<span> Threads</span>
+
+  <li class="mdl-list__item">
+    <span class="mdl-list__item-primary-content">
+    <i class="material-icons mdl-list__item-icon">person</i>
+    Bryan Cranston
+</span>
+  </li>
+  <li class="mdl-list__item">
+    <span class="mdl-list__item-primary-content">
+    <i class="material-icons mdl-list__item-icon">person</i>
+    Aaron Paul
+  </span>
+  </li>
+  <li class="mdl-list__item">
+    <span class="mdl-list__item-primary-content">
+    <i class="material-icons mdl-list__item-icon">person</i>
+    Bob Odenkirk
+  </span>
+  </li>
+</ul>-->
+</div>
+</div>
+<!--<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Title</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+    </nav>
+  </div>
+  </div>-->
+  </div>
+
+  </main>
+</div>
+<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDnJkTvGER3ipWdEANZUKIzaZV164Rb8WQ",
+    authDomain: "talktome-af3b8.firebaseapp.com",
+    databaseURL: "https://talktome-af3b8.firebaseio.com",
+    projectId: "talktome-af3b8",
+    storageBucket: "talktome-af3b8.appspot.com",
+    messagingSenderId: "61579555031"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="main.js"></script>
+</body>
+</html>
+
+
+<!--<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
+
+    <!- update the version number as needed ->
+    <script defer src="/__/firebase/4.9.0/firebase-app.js"></script>
+    <!- include only the Firebase features as you need ->
+    <script defer src="/__/firebase/4.9.0/firebase-auth.js"></script>
+    <script defer src="/__/firebase/4.9.0/firebase-database.js"></script>
+    <script defer src="/__/firebase/4.9.0/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/4.9.0/firebase-storage.js"></script>
+    <!- initialize the SDK after all desired features are loaded ->
+    <script defer src="/__/firebase/init.js"></script>
+
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="message">
+      <h2>Welcome</h2>
+      <h1>Firebase Hosting Setup Complete</h1>
+      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
+      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+    </div>
+    <p id="load">Firebase SDK Loading&hellip;</p>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+        try {
+          let app = firebase.app();
+          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
+          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script>
+  </body>
+</html>-->

@@ -1,0 +1,14 @@
+{
+  "Threads" : [ null, {
+    "Users" : [ 1, 2 ],
+    "message" : [ null, {
+      "text" : "hi"
+    }, {
+      "text" : "hello"
+    } ],
+    "name" : "chat 1"
+  } ],
+  "Users" : [ null, {
+    "name" : "sonia"
+  } ]
+}

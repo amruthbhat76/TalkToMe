@@ -1,0 +1,50 @@
+{users: {
+    1: {
+        name: "John"
+        threads: [
+            1,
+            2
+        ]
+    },
+    2: {
+        name: "Simon"
+        threads: [
+            1,
+            2
+        ]
+    }
+    3: {
+        name: "Jack"
+    }
+}
+
+threads: {
+    1: {
+        name: "Group Chat",
+        messages: {
+            1: {
+                text: "Hey Guys!"
+            }
+            2: {
+                text: "What's up?"
+            }
+        },
+        users: [
+            1,
+            2
+        ]
+    }
+    2: {
+        name: "Private Chat",
+        messages: {
+            1: {
+                text: "Hey Guys!"
+            }
+        },
+        users: [
+            1,
+            2
+        ]
+    }
+}
+}
